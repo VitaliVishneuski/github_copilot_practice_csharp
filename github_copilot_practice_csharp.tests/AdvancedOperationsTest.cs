@@ -15,61 +15,61 @@ public class AdvancedOperationsTest {
     [Test]
     public void TestFindMax() {
         int result = advOps.FindMax(new int[]{1, 2, 3, 4, 5});
-        Assert.AreEqual(5, result);
+        Assert.That(result, Is.EqualTo(5));
     }
 
     [Test]
     public void TestReverseString() {
         string result = advOps.ReverseString("hello");
-        Assert.AreEqual("olleh", result);
+        Assert.That(result, Is.EqualTo("olleh"));
     }
 
     [Test]
     public void TestFormatDate() {
         DateTime date = new DateTime(2023, 1, 1);
         string result = advOps.FormatDate(date);
-        Assert.AreEqual("2023-01-01", result);
+        Assert.That(result, Is.EqualTo("2023-01-01"));
     }
 
     [Test]
     public void TestFactorial() {
         int result = advOps.Factorial(5);
-        Assert.AreEqual(120, result);
+        Assert.That(result, Is.EqualTo(120));
     }
 
     [Test]
     public void TestCalculateStatistics() {
         var result = advOps.CalculateStatistics(new int[]{1, 2, 3, 4, 5});
-        Assert.AreEqual(15, result["sum"]);
-        Assert.AreEqual(3.0, result["average"]);
-        Assert.AreEqual(1, result["min"]);
-        Assert.AreEqual(5, result["max"]);
+        Assert.That(result["sum"], Is.EqualTo(15));
+        Assert.That(result["average"], Is.EqualTo(3.0));
+        Assert.That(result["min"], Is.EqualTo(1));
+        Assert.That(result["max"], Is.EqualTo(5));
     }
 
     [Test]
     public void TestCalculateStatisticsEmptyArray() {
         var result = advOps.CalculateStatistics(new int[]{});
-        Assert.AreEqual(0, result["sum"]);
-        Assert.AreEqual(double.NaN, result["average"]);
-        Assert.IsNull(result["min"]);
-        Assert.IsNull(result["max"]);
+        Assert.That(result["sum"], Is.EqualTo(0));
+        Assert.That(result["average"], Is.EqualTo(double.NaN));
+        Assert.That(result["min"], Is.Null);
+        Assert.That(result["max"], Is.Null);
     }
 
     [Test]
     public void TestCalculateStatisticsSingleElement() {
         var result = advOps.CalculateStatistics(new int[]{42});
-        Assert.AreEqual(42, result["sum"]);
-        Assert.AreEqual(42.0, result["average"]);
-        Assert.AreEqual(42, result["min"]);
-        Assert.AreEqual(42, result["max"]);
+        Assert.That(result["sum"], Is.EqualTo(42));
+        Assert.That(result["average"], Is.EqualTo(42.0));
+        Assert.That(result["min"], Is.EqualTo(42));
+        Assert.That(result["max"], Is.EqualTo(42));
     }
 
     [Test]
     public void TestCalculateStatisticsNegativeNumbers() {
         var result = advOps.CalculateStatistics(new int[]{-1, -2, -3, -4, -5});
-        Assert.AreEqual(-15, result["sum"]);
-        Assert.AreEqual(-3.0, result["average"]);
-        Assert.AreEqual(-5, result["min"]);
-        Assert.AreEqual(-1, result["max"]);
+        Assert.That(result["sum"], Is.EqualTo(-15));
+        Assert.That(result["average"], Is.EqualTo(-3.0));
+        Assert.That(result["min"], Is.EqualTo(-5));
+        Assert.That(result["max"], Is.EqualTo(-1));
     }
 }
